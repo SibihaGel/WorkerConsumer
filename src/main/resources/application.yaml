@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+
+spring:
+  application:
+    name: eureka-employee-service
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-add-partitions: true
+      bindings:
+        employeeEventProcessor-out-0:
+          destination: create-employee
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: employees
+      security:
+        encryption:
+          clusterEncryption:
+            keyFile: C:\Users\kiryx\IdeaProjects\WorkProjectUchetEmployee\src\main\resources\encryption.key
